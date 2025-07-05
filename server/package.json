@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.4",
+  "dependencies": {
+    "@openrouter/ai-sdk-provider": "^0.7.2",
+    "@supabase/supabase-js": "^2.50.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "node-cron": "^4.2.0",
+    "nodemailer": "^7.0.4"
+  },
+  "devDependencies": {
+    "jest": "^30.0.4",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.1"
+  }
+}
