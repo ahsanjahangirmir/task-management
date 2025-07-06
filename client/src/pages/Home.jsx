@@ -1,5 +1,6 @@
 import LogoutButton from "@/components/LogoutButton"
 import TaskList from "@/components/TaskList"
+import TaskModal from "@/components/TaskModal"
 
 export default function Home() 
 {
@@ -13,6 +14,7 @@ export default function Home()
             </div>
             
             <TaskList/>
+            <TaskModal/>
         
         </div>
 
