@@ -1,26 +1,33 @@
-import { useEffect, useState } from 'react';
-import supabase from './lib/supabase';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Register from "@/pages/Register"
+import Login from "@/pages/Login"
+import Home from "@/pages/Home"
+import ForgotPassword from "@/pages/ForgotPassword"
+import { SessionProvider } from "./context/SessionContext"
+import ProtectedRoute from "@/components/ProtectedRoute"
 
-function App() {
-  const [count, setCount] = useState(null);
-
-  useEffect(() => {
-    async function fetchCount() {
-      const { count, error } = await supabase
-        .from('tasks')
-        .select('*', { count: 'exact', head: true });
-
-      if (!error) setCount(count);
-    }
-    fetchCount();
-  }, []);
-
+export default function App() 
+{
   return (
-    <div className="p-8">
-      <h1 className="text-2xl">Supabase connected!</h1>
-      {count !== null && <p>Total tasks in DB: {count}</p>}
-    </div>
-  );
+   
+    <SessionProvider>
+      
+      <BrowserRouter>
+      
+        <Routes>
+    
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgot" element={<ForgotPassword />} />
+    
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Home />} />
+          </Route>
+    
+        </Routes>
+      
+      </BrowserRouter>
+    
+    </SessionProvider>  
+  )
 }
-
-export default App;
